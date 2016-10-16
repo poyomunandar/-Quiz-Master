@@ -1,0 +1,21 @@
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DATABASE() as db[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT GET_LOCK('7458657555131878620', 0);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (195.4ms)[0m  [1m[33mUPDATE `ar_internal_metadata` SET `value` = 'test', `updated_at` = '2016-10-03 11:45:39' WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+  [1m[35m (65.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT RELEASE_LOCK('7458657555131878620')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Started GET "/webservices/running_process?agent_ip=localhost&value=247" for 127.0.0.1 at 2016-10-03 23:10:03 +0700
+Processing by WebservicesController#running_process as */*
+  Parameters: {"agent_ip"=>"localhost", "value"=>"247"}
+Completed 500 Internal Server Error in 176ms
+Started GET "/webservices/cpu_usage?agent_ip=localhost&value=42.3" for 127.0.0.1 at 2016-10-03 23:10:04 +0700
+Processing by WebservicesController#cpu_usage as */*
+  Parameters: {"agent_ip"=>"localhost", "value"=>"42.3"}
+Completed 500 Internal Server Error in 8ms
+Started GET "/webservices/disk_usage?agent_ip=localhost&value=10.7508" for 127.0.0.1 at 2016-10-03 23:10:04 +0700
+Processing by WebservicesController#disk_usage as */*
+  Parameters: {"agent_ip"=>"localhost", "value"=>"10.7508"}
+Completed 500 Internal Server Error in 11ms

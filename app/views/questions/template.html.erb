@@ -1,0 +1,28 @@
+<h1 align="center"><%= params[:id].blank? ? "New" : "Editing" %> Question</h1>
+
+<%= form_for :questions, :url => 
+     url_for(:action => params[:id].blank? ? "new" : "edit", :id => @hours) do |f| %>
+  <table>
+    <tr>
+      <td style="width: 260px">Question</td>
+      <td><%= text_area_tag :question, @questions ? @questions.question : ''%></td>
+      <script>
+        $(function() {
+          $('#question').froalaEditor()
+        });
+      </script>
+    </tr>
+    <tr>
+      <td>Answer</td>
+      <td><%= text_field_tag :answer, @questions ? @questions.answer : ''%></td>
+    </tr>
+    <tr>
+      <td>
+        <%= submit_tag (params[:id].blank? ? "Create" : "Update") + " Question" %>
+      </td>
+    </tr>
+  </table>
+
+  <%= hidden_field_tag :id, params[:id] %>
+  <%= hidden_field_tag :kind, params[:id].blank? ? "Create" : "Update" %>
+<% end %>

@@ -1,0 +1,23 @@
+<h1 align="center">Quiz Mode</h1>
+<td><link href="../css/froala_style.min.css" rel="stylesheet" type="text/css" />
+<%= form_for :questions, :url => 
+     url_for(:action => "quiz", :id => @hours) do |f| %>
+  <% if !@questions[@idx].nil?%>
+  <table>
+    <tr>
+      <td class="fr-view" style="width: 260px">Q:&nbsp;<%= label_tag :question, @questions ? (raw @questions[@idx].question) : ''%></td>
+    </tr>
+    <tr>
+      <td>A:&nbsp;<%= text_field_tag :answer%></td>
+    </tr>
+    <tr>
+      <td>
+        <%= submit_tag ("Submit Answer") %>
+      </td>
+    </tr>
+  </table>  
+  <%= hidden_field_tag :id, @questions[@idx].id %>
+  <%= hidden_field_tag :idx, @idx %>
+  <%= hidden_field_tag :correct_answer_number, @correct_answer_number %>
+  <% end %>
+<% end %>
